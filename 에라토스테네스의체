@@ -1,0 +1,28 @@
+//백만 이하의 소수를 구할때
+//벡터에 넣고나서 continue 해줘야 백만 이하의 모든 소수를 구함
+//for(int i=2;i*i<=MAX;i++) 이거는 문제에 따라서
+//시간복잡도 O(NloglongN)
+#include <cstdio>
+#include <vector>
+using namespace std;
+const int MAX = 1000000;
+
+bool check[MAX];
+vector<int> vt;
+
+int main()
+{
+	for (int i = 2; i <= MAX; i++)
+	{
+		if (check[i])
+			continue;
+		vt.push_back(i);
+		if (1LL * i*i >= MAX)
+			continue;
+		for (int j = i * i; j <= MAX; j+=i)
+		{
+			check[j] = true;
+		}
+	}
+	return 0;
+}
