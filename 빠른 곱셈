@@ -1,0 +1,12 @@
+long long mul(long long a, int b)
+{
+	long long ret = 1;
+	while (b)
+	{
+		if (b % 2)
+			ret = (ret * a) % (long long)MOD;
+		a = (a * a) % (long long)MOD;
+		b /= 2;
+	}
+	return ret;
+}
